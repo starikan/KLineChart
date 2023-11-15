@@ -18,5 +18,7 @@ The data required for the chart must be in a fixed format. Through the chart API
   volume: number
   // Turnover, a non-required field, if you need to display the technical indicators 'EMV' and 'AVP', you need to fill this field with data.
   turnover: number
+  // Color of bar e.g. #444 or #000000
+  color: string
 }
 ```

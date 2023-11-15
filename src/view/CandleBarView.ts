@@ -71,7 +71,7 @@ export default class CandleBarView extends ChildrenView {
     isMain: boolean
   ): void {
     const { data: kLineData, x } = data
-    const { open, high, low, close } = kLineData
+    const { open, high, low, close, color: barColor = '' } = kLineData
     const { halfGapBar, gapBar } = barSpace
     const { type, styles } = candleBarOptions
     let color: string
@@ -90,6 +90,13 @@ export default class CandleBarView extends ChildrenView {
       borderColor = styles.noChangeBorderColor
       wickColor = styles.noChangeWickColor
     }
+
+    if (barColor.length > 0) {
+      color = barColor
+      borderColor = barColor
+      wickColor = barColor
+    }
+
     const openY = axis.convertToPixel(open)
     const closeY = axis.convertToPixel(close)
     const priceY = [
